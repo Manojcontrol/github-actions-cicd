@@ -197,3 +197,153 @@ Whenever a developer pushes new code to the main branch of the GitHub repository
 **Project Status:** In Progress
 
 **Project:** Automate Code Deployment Using CI/CD Pipeline (GitHub Actions)
+
+## Step 11: Rename the Default Git Branch to Main
+
+**Command:**
+```bash
+git branch -M main
+```
+
+**What does this command do?**
+
+- `git branch` is used to manage branches in Git.
+- `-M` renames the current branch.
+- `main` is the new branch name.
+
+**Why is this required?**
+
+Git repositories commonly use `main` as the default branch name. We renamed our local branch from `master` to `main` to match the GitHub repository.
+
+**Result:**
+
+The local Git branch was successfully renamed to `main`.
+
+---
+
+## Step 12: Connect the Local Repository to GitHub
+
+**Command:**
+```bash
+git remote add origin https://github.com/Manojcontrol/github-actions-cicd.git
+```
+
+**What does this command do?**
+
+- `git remote` manages connections to remote repositories.
+- `add` adds a new remote repository.
+- `origin` is the default name given to the remote repository.
+- The URL specifies our GitHub repository.
+
+**Why is this required?**
+
+This connects our local project folder to the GitHub repository so that we can upload and download project files.
+
+**Verify the connection:**
+```bash
+git remote -v
+```
+
+This command displays the remote repository URLs configured in Git.
+
+**Result:**
+
+The local repository was successfully connected to GitHub using the remote name `origin`.
+
+---
+
+## Step 13: Download and Merge Existing GitHub Files
+
+**Command:**
+```bash
+git pull origin main --allow-unrelated-histories --no-rebase
+```
+
+**What does this command do?**
+
+- `git pull` downloads and integrates changes from a remote repository.
+- `origin` identifies our GitHub repository.
+- `main` specifies the branch.
+- `--allow-unrelated-histories` allows Git to merge two repositories that were initialized separately.
+- `--no-rebase` instructs Git to use a merge instead of rebasing.
+
+**Why is this required?**
+
+We initially created the `README.md` file directly on GitHub, while our `index.html` file and initial commit were created locally. Since both repositories had separate histories, we needed to merge them.
+
+**Additional step:**
+
+Git opened the Vim editor to confirm the merge commit message.
+
+To save and exit:
+1. Press `Esc`.
+2. Type `:wq`.
+3. Press `Enter`.
+
+**Result:**
+
+The local repository and GitHub repository histories were successfully merged.
+
+---
+
+## Step 14: Upload the Local Project to GitHub
+
+**Command:**
+```bash
+git push -u origin main
+```
+
+**What does this command do?**
+
+- `git push` uploads local commits to GitHub.
+- `-u` establishes an upstream tracking connection.
+- `origin` specifies the remote repository.
+- `main` specifies the destination branch.
+
+**Why is this required?**
+
+This uploads our local project files and commits to the GitHub repository, making them available online.
+
+The upstream tracking connection also allows us to use `git push` and `git pull` more easily in future operations.
+
+**Result:**
+
+The local project is synchronized with the GitHub repository.
+
+---
+
+## Step 15: Verify the GitHub Repository
+
+**Repository URL:**
+
+https://github.com/Manojcontrol/github-actions-cicd
+
+**Files expected in the repository:**
+
+1. `README.md` – Project documentation.
+2. `index.html` – Sample website.
+
+**Verification:**
+
+Open the GitHub repository in a browser and confirm that both files are visible.
+
+**Result:**
+
+The project files and documentation are available in the GitHub repository.
+
+---
+
+## Current Project Progress
+
+- [x] Git installation and configuration
+- [x] Local project folder creation
+- [x] Sample HTML website creation
+- [x] Git repository initialization
+- [x] Initial commit
+- [x] Rename branch to main
+- [x] Connect local repository to GitHub
+- [x] Merge local and remote repository histories
+- [x] Upload project to GitHub
+- [x] Verify repository files
+
+**Next Phase:** Configure AWS EC2 and prepare the server for automated website deployment using GitHub Actions.
